@@ -3,40 +3,14 @@ Public Class FuteballTeams
     Dim connection As New MY_CONNECTION2
     Private Sub FuteballTeams_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         toList()
+        btnEdit.Enabled = True
+
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim name As String = txtNameTeam.Text
-        Dim stadium As String = txtNameEstadium.Text
-        Dim uniform1 As String = txtUniform1.Text
-        Dim uniform2 As String = txtUniform2.Text
 
-        If name <> "" Or stadium <> "" Or uniform1 <> "" Or uniform2 <> "" Then
-
-            Try
-                connection.openConnection()
-                Dim cmd As New MySqlCommand("INSERT INTO `teams`(`name_team`,`stadium`, `uniform_one`, `uniform_two`) VALUES (@n, @st, @uo, @ut)", connection.getConnection())
-
-                cmd.Parameters.Add("@n", MySqlDbType.VarChar).Value = name
-                cmd.Parameters.Add("@st", MySqlDbType.VarChar).Value = stadium
-                cmd.Parameters.Add("@uo", MySqlDbType.VarChar).Value = uniform1
-                cmd.Parameters.Add("@ut", MySqlDbType.VarChar).Value = uniform2
-
-                cmd.ExecuteNonQuery()
-
-                MsgBox("Dados salvos com sucesso")
-            Catch ex As Exception
-                MsgBox("error " + ex.Message)
-            End Try
-
-            btnSave.Enabled = False
-            toList()
-
-        Else
-            MsgBox("Preencha o campo descrição")
-        End If
     End Sub
-    Private Sub toList()
+    Public Sub toList()
         Try
             connection.openConnection()
             Dim dt As New DataTable
@@ -49,13 +23,14 @@ Public Class FuteballTeams
             dg.DataSource = dt
 
             formactDg()
+            counterRegister()
 
         Catch ex As Exception
             MsgBox("error " + ex.Message)
         End Try
     End Sub
 
-    Private Sub formactDg()
+    Public Sub formactDg()
         dg.Columns(0).HeaderText = "Time"
         dg.Columns(1).HeaderText = "Uniforme 1"
         dg.Columns(2).HeaderText = "Uniforme 2"
@@ -67,18 +42,26 @@ Public Class FuteballTeams
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        txtNameTeam.Enabled = True
-        txtNameEstadium.Enabled = True
-        txtUniform1.Enabled = True
-        txtUniform2.Enabled = True
+        Dim fomrAddTeam As New FormAddTeam
+        FormAddTeam.Show()
 
-        btnSave.Enabled = True
-        btnEdit.Enabled = True
-        btnDelete.Enabled = True
 
     End Sub
 
-    Private Sub dg_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg.CellContentClick
 
+
+    Sub counterRegister()
+        Dim total As Integer = dg.Rows.Count
+        lblRegisters.Text = total
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        Dim formEdit As New EditTeam
+        EditTeam.Show()
+        toList()
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        toList()
     End Sub
 End Class
