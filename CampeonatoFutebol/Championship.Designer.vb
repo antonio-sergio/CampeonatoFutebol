@@ -29,11 +29,11 @@ Partial Class Championship
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(298, 210)
+        Me.Label1.Location = New System.Drawing.Point(345, 195)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(172, 31)
+        Me.Label1.Size = New System.Drawing.Size(163, 31)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "CAmpeonato"
+        Me.Label1.Text = "campeonato"
         '
         'Championship
         '
@@ -42,6 +42,7 @@ Partial Class Championship
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Championship"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Championship"
         Me.ResumeLayout(False)
         Me.PerformLayout()

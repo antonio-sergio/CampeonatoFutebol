@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EditTeam
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EditTeam
     'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
     'Pode ser modificado usando o Windows Form Designer.  
     'Não o modifique usando o editor de códigos.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dg = New System.Windows.Forms.DataGridView()
         Me.txtCode = New System.Windows.Forms.TextBox()
@@ -35,7 +35,6 @@ Partial Class EditTeam
         Me.Label2 = New System.Windows.Forms.Label()
         Me.T = New System.Windows.Forms.Label()
         Me.btnSaveEdit = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.dg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,17 +42,18 @@ Partial Class EditTeam
         '
         Me.dg.AllowUserToAddRows = False
         Me.dg.AllowUserToDeleteRows = False
+        Me.dg.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dg.Location = New System.Drawing.Point(209, 282)
+        Me.dg.Location = New System.Drawing.Point(163, 199)
         Me.dg.Name = "dg"
         Me.dg.ReadOnly = True
         Me.dg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dg.Size = New System.Drawing.Size(481, 150)
+        Me.dg.Size = New System.Drawing.Size(446, 150)
         Me.dg.TabIndex = 35
         '
         'txtCode
         '
-        Me.txtCode.Location = New System.Drawing.Point(281, 95)
+        Me.txtCode.Location = New System.Drawing.Point(535, 72)
         Me.txtCode.Name = "txtCode"
         Me.txtCode.Size = New System.Drawing.Size(38, 20)
         Me.txtCode.TabIndex = 34
@@ -61,33 +61,33 @@ Partial Class EditTeam
         'txtUniform1
         '
         Me.txtUniform1.Enabled = False
-        Me.txtUniform1.Location = New System.Drawing.Point(326, 203)
+        Me.txtUniform1.Location = New System.Drawing.Point(278, 124)
         Me.txtUniform1.Name = "txtUniform1"
-        Me.txtUniform1.Size = New System.Drawing.Size(100, 20)
+        Me.txtUniform1.Size = New System.Drawing.Size(107, 20)
         Me.txtUniform1.TabIndex = 33
         '
         'txtUniform2
         '
         Me.txtUniform2.Enabled = False
-        Me.txtUniform2.Location = New System.Drawing.Point(326, 237)
+        Me.txtUniform2.Location = New System.Drawing.Point(460, 124)
         Me.txtUniform2.Name = "txtUniform2"
-        Me.txtUniform2.Size = New System.Drawing.Size(100, 20)
+        Me.txtUniform2.Size = New System.Drawing.Size(138, 20)
         Me.txtUniform2.TabIndex = 32
         '
         'txtNameEstadium
         '
         Me.txtNameEstadium.Enabled = False
-        Me.txtNameEstadium.Location = New System.Drawing.Point(323, 171)
+        Me.txtNameEstadium.Location = New System.Drawing.Point(309, 98)
         Me.txtNameEstadium.Name = "txtNameEstadium"
-        Me.txtNameEstadium.Size = New System.Drawing.Size(100, 20)
+        Me.txtNameEstadium.Size = New System.Drawing.Size(289, 20)
         Me.txtNameEstadium.TabIndex = 31
         '
         'txtNameTeam
         '
         Me.txtNameTeam.Enabled = False
-        Me.txtNameTeam.Location = New System.Drawing.Point(323, 135)
+        Me.txtNameTeam.Location = New System.Drawing.Point(253, 72)
         Me.txtNameTeam.Name = "txtNameTeam"
-        Me.txtNameTeam.Size = New System.Drawing.Size(100, 20)
+        Me.txtNameTeam.Size = New System.Drawing.Size(276, 20)
         Me.txtNameTeam.TabIndex = 30
         '
         'txtSearch
@@ -100,7 +100,7 @@ Partial Class EditTeam
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(200, 200)
+        Me.Label5.Location = New System.Drawing.Point(209, 124)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(63, 17)
         Me.Label5.TabIndex = 28
@@ -110,7 +110,7 @@ Partial Class EditTeam
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(200, 234)
+        Me.Label4.Location = New System.Drawing.Point(391, 127)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(63, 17)
         Me.Label4.TabIndex = 27
@@ -120,7 +120,7 @@ Partial Class EditTeam
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(197, 168)
+        Me.Label3.Location = New System.Drawing.Point(209, 98)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 17)
         Me.Label3.TabIndex = 26
@@ -130,7 +130,7 @@ Partial Class EditTeam
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(197, 135)
+        Me.Label2.Location = New System.Drawing.Point(209, 72)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(38, 17)
         Me.Label2.TabIndex = 25
@@ -140,7 +140,7 @@ Partial Class EditTeam
         'T
         '
         Me.T.AutoSize = True
-        Me.T.Location = New System.Drawing.Point(558, 266)
+        Me.T.Location = New System.Drawing.Point(469, 183)
         Me.T.Name = "T"
         Me.T.Size = New System.Drawing.Size(97, 13)
         Me.T.TabIndex = 24
@@ -149,28 +149,19 @@ Partial Class EditTeam
         'btnSaveEdit
         '
         Me.btnSaveEdit.Enabled = False
-        Me.btnSaveEdit.Location = New System.Drawing.Point(93, 168)
+        Me.btnSaveEdit.Location = New System.Drawing.Point(209, 160)
         Me.btnSaveEdit.Name = "btnSaveEdit"
         Me.btnSaveEdit.Size = New System.Drawing.Size(75, 23)
         Me.btnSaveEdit.TabIndex = 23
         Me.btnSaveEdit.Text = "Salvar"
         Me.btnSaveEdit.UseVisualStyleBackColor = True
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(194, 18)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(205, 31)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "times de futebol"
-        '
         'EditTeam
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ClientSize = New System.Drawing.Size(734, 361)
         Me.Controls.Add(Me.dg)
         Me.Controls.Add(Me.txtCode)
         Me.Controls.Add(Me.txtUniform1)
@@ -184,8 +175,8 @@ Partial Class EditTeam
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.T)
         Me.Controls.Add(Me.btnSaveEdit)
-        Me.Controls.Add(Me.Label1)
         Me.Name = "EditTeam"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "EditTeam"
         CType(Me.dg, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -206,5 +197,4 @@ Partial Class EditTeam
     Friend WithEvents Label2 As Label
     Friend WithEvents T As Label
     Friend WithEvents btnSaveEdit As Button
-    Friend WithEvents Label1 As Label
 End Class

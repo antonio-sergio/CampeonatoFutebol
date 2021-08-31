@@ -22,23 +22,21 @@ Public Class FuteballTeams
             da.Fill(dt)
             dg.DataSource = dt
 
-            formactDg()
-            counterRegister()
+            FormactDg()
+
 
         Catch ex As Exception
             MsgBox("error " + ex.Message)
         End Try
     End Sub
 
-    Public Sub formactDg()
+    Public Sub FormactDg()
         dg.Columns(0).HeaderText = "Time"
         dg.Columns(1).HeaderText = "Uniforme 1"
         dg.Columns(2).HeaderText = "Uniforme 2"
         dg.Columns(3).HeaderText = "Estádio/Campo"
         dg.Columns(4).HeaderText = "ID"
-        dg.Columns(4).Visible = False
 
-        dg.Columns(4).Width = 50
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -63,5 +61,63 @@ Public Class FuteballTeams
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         toList()
+    End Sub
+
+    Private Sub dg_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dg.CellContentClick
+
+        btnDelete.Enabled = True
+        txtCode.Text = dg.CurrentRow.Cells(4).Value
+
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim team As New Classes.Teams
+        Dim result As DialogResult = MessageBox.Show("Confirmar exclusão?", "Excluir registro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+
+        If result = vbYes Then
+            Try
+                connection.openConnection()
+                Dim cmd As New MySqlCommand("DELETE FROM `teams` WHERE `idTeam` = '" & txtCode.Text & "' ", connection.getConnection())
+
+                cmd.Parameters.Add("@n", MySqlDbType.VarChar).Value = team.name_team
+
+
+                cmd.ExecuteNonQuery()
+
+                MsgBox("O time foi excluído")
+            Catch ex As Exception
+                MsgBox("Erro ao tentar excluí time " + ex.Message)
+            End Try
+
+            btnSave.Enabled = False
+            toList()
+
+        End If
+
+    End Sub
+
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        Search()
+    End Sub
+
+    Private Sub Search()
+        Try
+            connection.openConnection()
+            Dim dt As New DataTable
+            Dim da As MySqlDataAdapter
+            da = New MySqlDataAdapter("select * from teams where name_team LIKE '" & txtSearch.Text & "%' order by name_team asc", connection.getConnection)
+            da.Fill(dt)
+            dg.DataSource = dt
+
+
+            counterRegister()
+
+        Catch ex As Exception
+            MsgBox("error " + ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtSearch_Click(sender As Object, e As EventArgs) Handles txtSearch.Click
+        txtSearch.Text = ""
     End Sub
 End Class

@@ -4,25 +4,32 @@ Public Class FormAddTeam
 
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim name As String = txtNameTeam.Text
-        Dim stadium As String = txtNameEstadium.Text
-        Dim uniform1 As String = txtUniform1.Text
-        Dim uniform2 As String = txtUniform2.Text
+        Dim team As New Classes.Teams
+        team.name_team = txtNameTeam.Text
+        team.stadium = txtNameEstadium.Text
+        team.uniform1 = txtUniform2.Text
+        team.uniform2 = txtUniform1.Text
 
-        If name <> "" Or stadium <> "" Or uniform1 <> "" Or uniform2 <> "" Then
+
+
+
+
+
+        If team.name_team <> "" Or team.stadium <> "" Or team.uniform1 <> "" Or team.uniform2 <> "" Then
 
             Try
                 connection.openConnection()
                 Dim cmd As New MySqlCommand("INSERT INTO `teams`(`name_team`,`stadium`, `uniform_one`, `uniform_two`) VALUES (@n, @st, @uo, @ut)", connection.getConnection())
 
-                cmd.Parameters.Add("@n", MySqlDbType.VarChar).Value = name
-                cmd.Parameters.Add("@st", MySqlDbType.VarChar).Value = stadium
-                cmd.Parameters.Add("@uo", MySqlDbType.VarChar).Value = uniform1
-                cmd.Parameters.Add("@ut", MySqlDbType.VarChar).Value = uniform2
+                cmd.Parameters.Add("@n", MySqlDbType.VarChar).Value = team.name_team
+                cmd.Parameters.Add("@st", MySqlDbType.VarChar).Value = team.stadium
+                cmd.Parameters.Add("@uo", MySqlDbType.VarChar).Value = team.uniform1
+                cmd.Parameters.Add("@ut", MySqlDbType.VarChar).Value = team.uniform2
 
                 cmd.ExecuteNonQuery()
 
                 MsgBox("Dados salvos com sucesso")
+                Me.Hide()
             Catch ex As Exception
                 MsgBox("error " + ex.Message)
             End Try
@@ -34,5 +41,7 @@ Public Class FormAddTeam
         End If
     End Sub
 
+    Private Sub FormAddTeam_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class
